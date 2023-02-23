@@ -4,7 +4,7 @@
     <div class="prod-img-container">
       <% if @store.product_images.any? %>
         <% @store.product_images.each do |product_image| %>
-          <div class='img-box'><%= image_tag product_image, width:300 %></div>
+          <div class='img-box'><%= image_tag product_image, height:250 %></div>
         <% end %>
       <% end %>
     </div>
@@ -46,8 +46,12 @@
     </div>
   </section>
 
-  <div class='btn-container'>
-    <%= link_to 'Edit', edit_store_path(@store) %>
-    <%= link_to 'Back', stores_path %>
-  </div>
+  <% if session[:admin] %>
+    <div class='btn-container'>
+      <%= link_to 'Edit', edit_store_path(@store) %>
+      <%= link_to 'Back', stores_path %>
+    </div>
+  <% else %>
+      <%= button_to "Add to Cart", line_items_path(store_id: @store), class:'btn', style:'background-color:#8019C8'%> 
+  <% end %>
 </div>

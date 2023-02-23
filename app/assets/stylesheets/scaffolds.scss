@@ -115,11 +115,11 @@
     background-color: rgb(223, 6, 6);
   }
   .store-container .f-container{
-    background-color: rgba(229, 229, 229, 0.978);
+    background-color: rgba(239, 239, 239, 0.978);
     margin-left: 1rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
     padding: 2rem;
+    width:40vw;
   }
   .store-container .f-container p{
     display: grid;
@@ -141,6 +141,11 @@
   }
   .prod-img-container{
     display: flex;
+    width: 40vw;
+    max-height: 500px;
+    object-fit:contain;
+    padding: 1rem;
+    justify-content: center;
   }
 
   .file-list{
