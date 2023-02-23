@@ -1,0 +1,53 @@
+<div class='store-container'>
+
+  <% if @cart_items.length == 0 %>
+    <h1 style="color:lightgray"> Your cart is empty </h1>
+    <%= image_tag "empty_cart.svg", width:400, style:"opacity:0.7" %>
+    <%= link_to 'Continue Shopping', gallery_index_path%>
+  <% else %>
+    <h1 class='title'>Your Shopping Cart</h1>
+    <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Colour</th>
+        <th>Price</th>
+        <th>Qty</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+
+    <% grand_total = 0 %>
+    <tbody>
+      <% @cart_items.each do |item|  %>
+        <% prod = Store.find(item.store_id) %>
+        <tr>
+          <td><%= prod.product_id %></td>
+          <td><%= prod.name %> <%= prod.category %></td>
+          <td><%= prod.colour %></td>
+          <td><%= prod.price %></td>
+          <td><%= item.qty %></td>
+          <td><%= price = item.qty * prod.price %></td>
+          <% grand_total += price %>
+        </tr>
+      <% end %>
+      <tr style="background-color:darkblue;color:white;">
+        <td style="border-bottom-left-radius:0.5rem"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Grand Total</td>
+        <td style="border-bottom-right-radius:0.5rem"><%= grand_total %></td>
+      </tr>
+    </tbody>
+    </table>
+    <% session[:amount]=grand_total %>
+    <div class='btn-container'>
+      <%= link_to 'Continue Shopping', gallery_index_path%>
+      <%= link_to 'Checkout', '/cart/checkout'%>
+    </div>
+    <%= link_to 'Empty Cart', '/cart/index', method: :delete, data: { confirm: 'Are you sure?' }, class:'destroy'%>
+  <% end %>
+  
+</div>

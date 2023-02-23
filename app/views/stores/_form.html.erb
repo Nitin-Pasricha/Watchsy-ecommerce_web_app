@@ -1,0 +1,72 @@
+
+<div class = 'f-container'>
+<%= form_with(model: store) do |form| %>
+  <% if store.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(store.errors.count, "error") %> prohibited this store from being saved:</h2>
+
+      <ul>
+        <% store.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :product_id, "Product Id" %>
+    <%= form.number_field :product_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.text_field :category %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gender %>
+    <%= form.text_field :gender %>
+  </div>
+
+  <div class="field">
+    <%= form.label :colour %>
+    <%= form.text_field :colour %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :product_images %>
+    <% if @store.product_images.attached? %>
+      <ul class='file-list'>
+        <% @store.product_images.each do |product_image| %>
+          <li>
+            <%= link_to product_image.filename, rails_blob_path(product_image, disposition: :inline) %>
+            <%= link_to 'Remove', delete_file_store_url(product_image.id), method: :delete, data: { confirm: 'Are you sure?'}, style:"color:rgb(194, 3, 3)" %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+    <%= form.file_field :product_images, multiple:true %>
+  </div>
+  
+
+  <div class="actions" style='text-align:center'>
+    <%= form.submit class:'btn' %>
+  </div>
+<% end %>
+</div>

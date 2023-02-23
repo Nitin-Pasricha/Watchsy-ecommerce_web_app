@@ -1,0 +1,39 @@
+<div class='form-container'>
+  <div class="auth-container">
+    <div class="auth-form">
+      <div class='title' >Admin Login</div>
+      <div class='underline'></div>
+
+      <%= form_with url:'/admin/login', method: :post do |f| %>
+        <% flash.each do |name, msg| %>
+            <%= content_tag :div, msg, class: name %>
+        <% end %>
+        <div class="input-boxes" style="margin-top:2.5rem">
+          <div class="input-box">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Enter your email" %>
+          </div>
+
+          <div class="input-box">
+            <%= f.password_field :password, autocomplete: "current-password", placeholder:"Enter your password" %>
+          </div>
+
+
+          <div class="button input-box" style="margin-top:3rem">
+            <%= f.submit "Log in" %>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="link-container">
+        <div class="text">
+            Not an admin? <%= link_to "Login as User", "/users/sign_in" %>
+        </div>
+      </div>
+      
+    </div>
+    <div class="cover">
+      <%= image_tag "login.svg" %>
+    </div>
+  </div>
+</div>
+

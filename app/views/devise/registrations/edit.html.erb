@@ -1,0 +1,47 @@
+<div class='form-container'>
+  <div class="auth-container">
+    <div class="auth-form">
+      <div class='title'>Edit <%= resource_name.to_s.humanize %></div>
+      <div class='underline'></div>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class='input-box'>
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <div class='input-box'>
+          <%= f.label :password %>
+          <%= f.password_field :password, autocomplete: "new-password", placeholder:"Leave blank if you don't wish to change it" %>
+        </div>
+
+        <div class='input-box'>
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+
+        <div class='input-box'>
+          <%= f.label :current_password %>
+          <%= f.password_field :current_password, autocomplete: "current-password", placeholder:"Enter your current password" %>
+        </div>
+
+        <div class="button input-box">
+          <%= f.submit "Update" %>
+        </div>
+      <% end %>
+      <div class="btn-container">Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class:'btn' %></div>
+      <div class='link-container'><div class='text'><%= link_to "Back", :back %></div></div>
+    </div>
+    <div class="cover">
+      <%= image_tag "edit.svg" %>
+    </div>
+    </div>
+    
+    
+</div>

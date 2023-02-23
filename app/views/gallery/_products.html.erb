@@ -1,0 +1,31 @@
+
+<div class="product_container">
+    <% !@watches.nil? && @watches.each do |watch| %>
+        <div class="box">
+            <div class="box-content">
+                <div class="img-box">
+                    <%= image_tag watch.product_images[0] %>
+                </div>
+                <div class="detail-box">
+                    <div class="text">
+                    <h6 style="color:darkblue">
+                        <%= watch.name %> <%= watch.category %> 
+                    </h6>
+                    <small>ID#<%= watch.product_id %></small>
+                    <h6><%= watch.gender %>'s watch</h6>
+                    
+                    </div>
+                    <div class="like">
+                    <h5 style="color:goldenrod">
+                        <span>₹</span> <%= watch.price %>
+                    </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-box">
+                <%= button_to "Add to Cart", line_items_path(store_id: watch) %> 
+            </div>
+        </div>
+    <% end %>
+    
+</div>

@@ -1,0 +1,32 @@
+<div class='form-container'>
+  <div class="auth-container">
+    <div class="auth-form">
+      <div class='title'>Signup</div>
+      <div class='underline'></div>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="input-boxes">
+          <div class="input-box">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Enter your email" %>
+          </div>
+
+          <div class="input-box">
+            <%= f.password_field :password, autocomplete: "new-password", placeholder:"Enter your password" %>
+          </div>
+
+          <div class="input-box">
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"Confirm your password" %>
+          </div>
+        </div>
+        <div class="button input-box">
+          <%= f.submit "Sign up" %>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+    </div>
+    <div class="cover">
+      <%= image_tag "b1.svg" %>
+    </div>
+  </div>
+</div>

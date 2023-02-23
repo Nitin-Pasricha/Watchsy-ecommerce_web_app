@@ -1,0 +1,42 @@
+<div class='form-container'>
+  <div class="auth-container">
+    <div class="auth-form" style="margin-top:0; padding-top:1rem">
+      
+      <div class='title'>Login</div>
+      <div class='underline'></div>
+      <div class="link-container" style="margin-top:0">
+        <div class="text" style="border:none; font-weight:bold; font-size:16px">
+            Are you an admin? <%= link_to "Login as Admin", "/admin/login" %>
+        </div>
+      </div>
+      
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="input-boxes">
+        <div class="input-box">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Enter your email" %>
+        </div>
+        
+        <div class="input-box">
+        <%= f.password_field :password, autocomplete: "current-password", placeholder:"Enter your password" %>
+        </div>
+        
+        <% if devise_mapping.rememberable? %>
+        <div style="text-align:center">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+        </div>
+          <% end %>
+
+          <div class="button input-box">
+            <%= f.submit "Log in" %>
+          </div>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links", class:'link-container' %>
+    </div>
+    <div class="cover">
+      <%= image_tag "login.svg" %>
+    </div>
+  </div>
+</div>

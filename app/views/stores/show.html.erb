@@ -1,0 +1,53 @@
+<div class='store-container'>
+  <p id="notice"><%= notice %></p>
+  <section class='product'>
+    <div class="prod-img-container">
+      <% if @store.product_images.any? %>
+        <% @store.product_images.each do |product_image| %>
+          <div class='img-box'><%= image_tag product_image, width:300 %></div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class='f-container'>
+      <p>
+        <strong>Product Id:</strong>
+        <%= @store.product_id %>
+      </p>
+
+      <p>
+        <strong>Name:</strong>
+        <%= @store.name %>
+      </p>
+
+      <p>
+        <strong>Category:</strong>
+        <%= @store.category %>
+      </p>
+
+      <p>
+        <strong>Description:</strong>
+        <%= @store.description %>
+      </p>
+
+      <p>
+        <strong>Gender:</strong>
+        <%= @store.gender %>
+      </p>
+
+      <p>
+        <strong>Colour:</strong>
+        <%= @store.colour %>
+      </p>
+
+      <p>
+        <strong>Price:</strong>
+        <%= @store.price %>
+      </p>
+    </div>
+  </section>
+
+  <div class='btn-container'>
+    <%= link_to 'Edit', edit_store_path(@store) %>
+    <%= link_to 'Back', stores_path %>
+  </div>
+</div>

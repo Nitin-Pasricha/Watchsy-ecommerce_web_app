@@ -1,0 +1,178 @@
+.store-container{
+  display: grid;
+  margin: 2rem auto;
+  place-items: center;
+  width: 90vw;
+  min-height: 70vh;
+}
+.store-container table{
+  // background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+  background-color: #d8e3f9;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.349);
+}
+.store-container th {
+  padding: 5px;
+  color: darkblue;
+}
+
+.store-container td {
+  padding: 0 5px 7px;
+}
+
+.store-container div.field{
+  display: flex;
+  justify-content: space-between;
+}
+
+.store-container div.field,
+.store-container div.actions {
+  margin-bottom: 10px; }
+
+.store-container #notice {
+  color: green; }
+
+.store-container .field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table; }
+
+.store-container #error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0; }
+
+.store-container #error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px -7px 0;
+  background-color: #c00;
+  color: #fff; }
+
+.store-container #error_explanation ul li {
+  font-size: 12px;
+  list-style: square; }
+
+.store-container label {
+  color: rgb(208, 108, 27);
+  display: block;
+}
+
+  .store-container .title{
+    color: rgb(8, 8, 161);
+    padding-top: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    border-bottom: 3px solid rgb(8, 8, 161);
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  
+
+  .store-container .btn, .store-container a{
+    margin: 1rem auto;
+    place-content: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    border: transparent;
+    color: white;
+    cursor: pointer;
+  }
+  .store-container .btn{
+    background-color: olivedrab;
+    
+  }
+  .store-container .btn:hover{
+    background-color: rgb(90, 125, 21);
+  }
+  .store-container .btn a, .store-container .destroy a{
+    color: white;
+    background-color: transparent;
+  }
+  .store-container .btn a:hover{
+    background-color: transparent;
+  }
+  .store-container a{
+    background-color: darkblue;
+  }
+  .store-container a:hover{
+    color: white;
+    background-color: rgb(1, 1, 175);
+  }
+  .store-container .destroy{
+    background-color: rgb(194, 3, 3);
+  }
+  .store-container .destroy:hover{
+    background-color: rgb(223, 6, 6);
+  }
+  .store-container .f-container{
+    background-color: rgba(229, 229, 229, 0.978);
+    margin-left: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    padding: 2rem;
+  }
+  .store-container .f-container p{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+  }
+  .store-container .f-container strong{
+    color: rgb(208, 108, 27);
+  }
+  .store-container .btn-container{
+    display: grid;
+    margin: 0.5rem;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+  }
+
+  .store-container .product{
+    display: flex;
+  }
+  .prod-img-container{
+    display: flex;
+  }
+
+  .file-list{
+    list-style: none;
+  }
+  .file-list a{
+    color: rgb(1, 1, 175);
+    background: transparent;
+  }
+  .file-list a:hover{
+    color: rgb(1, 1, 175);
+    text-decoration: underline;
+    background: transparent;
+  }
+
+  .search-box{
+    margin: auto 1rem;
+    padding-left: 0.5rem;
+    background-color: rgb(241, 241, 241);
+    border-radius: 0.25rem;
+
+  }
+  .search-bar{
+    background-color: rgb(241, 241, 241);
+    width: 20rem;
+    border:none;
+    padding: 0.5rem 0.25rem;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+
+  }
+  .search-bar:focus{
+    outline: none;
+  }
+  
