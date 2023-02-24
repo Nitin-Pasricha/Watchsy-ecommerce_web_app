@@ -180,4 +180,23 @@
   .search-bar:focus{
     outline: none;
   }
+
+  .ty-banner{
+    display: grid;
+    background-color: rgb(250, 215, 169);
+    place-items: center;
+    place-content: center;
+    margin: 3rem auto;
+    width:50vw;
+    height:450px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.295);
+  }
+  .ty-container{
+    background-color: rgba(255, 255, 255, 0.407);
+    display: grid;
+    place-content: center;
+    place-items: center;
+    height: 400px;
+    width: 46vw;
+  }
   

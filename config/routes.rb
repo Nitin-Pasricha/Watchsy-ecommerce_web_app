@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'cart/checkout'
   post 'cart/checkout'
   delete 'cart/index', to:"cart#empty_cart"
+
+  get 'cart/thankyou_page'
   resources :line_items
   get 'gallery/index'
   post 'gallery/search', as: 'search'

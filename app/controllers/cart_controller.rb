@@ -37,9 +37,9 @@ class CartController < ApplicationController
           gateway.capture(amount_to_charge, response.authorization)
           NotifierMailer.with(user:current_user,amount:session[:amount]).purchase_complete.deliver
           destroy
-          flash[:notice]="Thank You for using Watchsy. We've sent you an email with the order details."
           session.delete(:amount)
-          redirect_to "/gallery/index"
+          session[:payment_successful] = true
+          redirect_to "/cart/thankyou_page"
         else
           flash[:alert]= "Something went wrong.Try again"
           render :checkout
@@ -53,11 +53,19 @@ class CartController < ApplicationController
     @cart_items.delete_all
   end
 
+  def thankyou_page
+    if(!session[:payment_successful])
+      redirect_to '/gallery/index'
+      return
+    end
+    session[:payment_successful]=false
+  end
+
   private
   def authenticate_user
     if(!user_signed_in?)
       flash[:notice]="Please login to continue shopping."
-      render "pages/index"
+      redirect_to "/users/sign_in"
       return
     end
   end
