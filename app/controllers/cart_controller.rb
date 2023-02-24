@@ -35,7 +35,7 @@ class CartController < ApplicationController
         puts response.inspect
         if response.success?
           gateway.capture(amount_to_charge, response.authorization)
-          #UserNotifier.purchase_complete(session[:user],current_cart).deliver    
+          NotifierMailer.with(user:current_user,amount:session[:amount]).purchase_complete.deliver
           destroy
           flash[:notice]="Thank You for using Watchsy. We've sent you an email with the order details."
           session.delete(:amount)
