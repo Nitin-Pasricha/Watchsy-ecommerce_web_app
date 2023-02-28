@@ -68,7 +68,7 @@ class LineItemsController < ApplicationController
     @line_item.destroy
 
     respond_to do |format|
-      format.html { redirect_to line_items_url, notice: "Line item was successfully destroyed." }
+      format.html { redirect_to '/cart/index', notice: "Line item was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -76,7 +76,7 @@ class LineItemsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_line_item
-      @line_item = LineItem.(params[:id])
+      @line_item = LineItem.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

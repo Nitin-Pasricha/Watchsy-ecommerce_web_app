@@ -15,6 +15,7 @@
         <th>Price</th>
         <th>Qty</th>
         <th>Total</th>
+        <th></th>
       </tr>
     </thead>
 
@@ -29,6 +30,11 @@
           <td><%= prod.price %></td>
           <td><%= item.qty %></td>
           <td><%= price = item.qty * prod.price %></td>
+          <td>
+            <%= link_to item, method: :delete, style:"background:none;color:rgb(194, 3, 3)", data: { confirm: 'Are you sure?' } do%>
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            <% end %>
+          </td>
           <% grand_total += price %>
         </tr>
       <% end %>
@@ -38,7 +44,8 @@
         <td></td>
         <td></td>
         <td>Grand Total</td>
-        <td style="border-bottom-right-radius:0.5rem"><%= grand_total %></td>
+        <td><%= grand_total %></td>
+        <td style="border-bottom-right-radius:0.5rem"></td>
       </tr>
     </tbody>
     </table>
